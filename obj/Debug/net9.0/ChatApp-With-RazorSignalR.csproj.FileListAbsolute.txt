@@ -98,4 +98,5 @@
 /home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/x9fm9kibwh-p3u5r0j31y.gz
 /home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/xlqe2dkil2-s7eu0p7jdb.gz
 /home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/04vvedr9vg-9yevjia33t.gz
-/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-q7wh2zqolw.gz
+/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/ChatApp-With-RazorSignalR.sourcelink.json
+/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-epjvgq89md.gz

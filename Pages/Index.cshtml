@@ -38,7 +38,14 @@
         </div>
 
         <div class="chat-input-area">
-            <div class="preview-area" id="filePreviewArea" style="display:none;"></div>
+            <div class="preview-area" id="filePreviewArea">
+                <div class="preview-header">
+                    <span>📎 Files to send</span>
+                    <button id="clearPreviewBtn" class="clear-btn">✕ Clear</button>
+                </div>
+                <div class="preview-items" id="previewItems"></div>
+                <button id="sendFilesBtn" class="primary-btn">Send Files</button>
+            </div>
             
             <div class="input-wrapper">
                 <button id="emojiBtn" class="icon-btn">😀</button>
@@ -192,40 +199,157 @@
 
     fileBtn.addEventListener("click", () => fileInput.click());
 
-    fileInput.addEventListener("change", async (e) => {
-        const files = e.target.files;
+    // File Preview Elements
+    const filePreviewArea = document.getElementById("filePreviewArea");
+    const previewItems = document.getElementById("previewItems");
+    const sendFilesBtn = document.getElementById("sendFilesBtn");
+    const clearPreviewBtn = document.getElementById("clearPreviewBtn");
+    let pendingFiles = [];
+
+    // When files are selected, show preview instead of uploading immediately
+    fileInput.addEventListener("change", (e) => {
+        const files = Array.from(e.target.files);
         if (files.length === 0) return;
 
-        const formData = new FormData();
-        for (let file of files) {
-            formData.append("files", file);
+        pendingFiles = files;
+        previewItems.innerHTML = "";
+
+        files.forEach((file, index) => {
+            const item = document.createElement("div");
+            item.className = "preview-item";
+
+            // Create preview based on type
+            if (file.type.startsWith("image/")) {
+                const img = document.createElement("img");
+                img.src = URL.createObjectURL(file);
+                img.className = "preview-thumb";
+                item.appendChild(img);
+            } else if (file.type.startsWith("video/")) {
+                const video = document.createElement("video");
+                video.src = URL.createObjectURL(file);
+                video.className = "preview-thumb";
+                video.muted = true;
+                item.appendChild(video);
+            } else {
+                const icon = document.createElement("div");
+                icon.className = "preview-icon";
+                icon.textContent = "📄";
+                item.appendChild(icon);
+            }
+
+            const info = document.createElement("div");
+            info.className = "preview-info";
+            info.innerHTML = `<span class="filename">${file.name}</span><span class="filesize">${formatSize(file.size)}</span>`;
+            item.appendChild(info);
+
+            previewItems.appendChild(item);
+        });
+
+        filePreviewArea.style.display = "block";
+        fileInput.value = "";
+    });
+
+    // Clear preview
+    clearPreviewBtn.addEventListener("click", () => {
+        pendingFiles = [];
+        previewItems.innerHTML = "";
+        filePreviewArea.style.display = "none";
+    });
+
+    // Send files with progress
+    sendFilesBtn.addEventListener("click", async () => {
+        if (pendingFiles.length === 0) return;
+
+        // Hide preview area first
+        filePreviewArea.style.display = "none";
+
+        // Upload each file with progress (non-blocking, runs in background)
+        for (const file of pendingFiles) {
+            uploadFileWithProgress(file);
         }
+        pendingFiles = [];
+    });
+
+    function uploadFileWithProgress(file) {
+        const formData = new FormData();
+        formData.append("files", file);
         
         const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
         if (token) formData.append("__RequestVerificationToken", token);
 
-        try {
-            addSystemMessage("Uploading files...");
-            const response = await fetch('?handler=Upload', {
-                method: 'POST',
-                body: formData
-            });
+        // Create a local "uploading" message for the sender
+        const uploadMsgId = "upload-" + Date.now() + "-" + Math.random();
+        const uploadDiv = document.createElement("div");
+        uploadDiv.className = "message self uploading";
+        uploadDiv.id = uploadMsgId;
+        uploadDiv.innerHTML = `
+            <div class="user">${username}</div>
+            <div class="content">
+                <div class="upload-preview">
+                    ${file.type.startsWith("image/") ? `<img src="${URL.createObjectURL(file)}" class="chat-image" />` : `<span class="file-icon">📎</span>`}
+                </div>
+                <div class="upload-info">
+                    <span class="filename">${file.name}</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                    <span class="progress-text">0%</span>
+                </div>
+            </div>
+        `;
+        messagesList.appendChild(uploadDiv);
+        scrollToBottom();
 
-            if (response.ok) {
-                const result = await response.json();
-                for (let item of result) {
-                    await connection.invoke("SendFile", username, item.name, item.url, item.type, item.size);
+        // Use XMLHttpRequest for progress tracking
+        const xhr = new XMLHttpRequest();
+
+        xhr.upload.addEventListener("progress", (e) => {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                const msgDiv = document.getElementById(uploadMsgId);
+                if (msgDiv) {
+                    msgDiv.querySelector(".progress-fill").style.width = percent + "%";
+                    msgDiv.querySelector(".progress-text").textContent = percent + "%";
                 }
-                addSystemMessage("Upload complete.");
-            } else {
-                addSystemMessage("Upload failed.");
             }
-        } catch (err) {
-            console.error(err);
-            addSystemMessage("Upload error: " + err.message);
-        }
-        fileInput.value = "";
-    });
+        });
+
+        xhr.addEventListener("load", async () => {
+            const msgDiv = document.getElementById(uploadMsgId);
+            if (xhr.status >= 200 && xhr.status < 300) {
+                try {
+                    const result = JSON.parse(xhr.responseText);
+                    if (result && result.length > 0) {
+                        const item = result[0];
+                        // Remove uploading message
+                        if (msgDiv) msgDiv.remove();
+                        // Now broadcast to everyone (including self) via SignalR
+                        await connection.invoke("SendFile", username, item.name, item.url, item.type, item.size);
+                    }
+                } catch (err) {
+                    console.error("Parse error", err);
+                    if (msgDiv) {
+                        msgDiv.querySelector(".progress-text").textContent = "Error";
+                        msgDiv.classList.add("error");
+                    }
+                }
+            } else {
+                if (msgDiv) {
+                    msgDiv.querySelector(".progress-text").textContent = "Failed";
+                    msgDiv.classList.add("error");
+                }
+            }
+        });
+
+        xhr.addEventListener("error", () => {
+            const msgDiv = document.getElementById(uploadMsgId);
+            if (msgDiv) {
+                msgDiv.querySelector(".progress-text").textContent = "Error";
+                msgDiv.classList.add("error");
+            }
+        });
+
+        xhr.open("POST", "?handler=Upload");
+        xhr.send(formData);
+    }
 
     emojiBtn.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent closing immediately
@@ -278,16 +402,26 @@
         const div = document.createElement("div");
         div.className = `message ${user === username ? "self" : "other"}`;
         
-        let content = "";
+        let preview = "";
+        let downloadBtn = `<a href="${url}" download="${fileName}" class="download-btn">⬇️ Download (${formatSize(size)})</a>`;
+        
         if (type.startsWith("image/")) {
-            content = `<img src="${url}" alt="${fileName}" class="chat-image" />`;
+            preview = `<img src="${url}" alt="${fileName}" class="chat-image" />`;
         } else if (type.startsWith("video/")) {
-            content = `<video src="${url}" controls class="chat-video"></video>`;
+            preview = `<video src="${url}" controls class="chat-video"></video>`;
+        } else if (type.startsWith("audio/")) {
+            preview = `<audio src="${url}" controls class="chat-audio"></audio>`;
         } else {
-             content = `<a href="${url}" target="_blank" class="file-link">📎 ${fileName} (${formatSize(size)})</a>`;
+            preview = `<div class="file-preview-icon">📄</div><span class="file-name">${fileName}</span>`;
         }
 
-        div.innerHTML = `<div class="user">${user}</div><div class="content">${content}</div>`;
+        div.innerHTML = `
+            <div class="user">${user}</div>
+            <div class="content file-content">
+                <div class="file-preview">${preview}</div>
+                ${downloadBtn}
+            </div>
+        `;
         messagesList.appendChild(div);
         scrollToBottom();
     }

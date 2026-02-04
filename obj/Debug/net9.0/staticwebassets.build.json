@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+BembTAPP6AQdH1U55HlLNGZcZ7AugnwJ4PkX2ZHvA8=",
+  "Hash": "ClYeVWGNdjzIdBE1emMlRhZsVWrLb+O1b0syKuAJLhY=",
   "Source": "ChatApp-With-RazorSignalR",
   "BasePath": "_content/ChatApp-With-RazorSignalR",
   "Mode": "Default",
@@ -185,12 +185,12 @@
       "OriginalItemSpec": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js"
     },
     {
-      "Identity": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-q7wh2zqolw.gz",
+      "Identity": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-epjvgq89md.gz",
       "SourceId": "ChatApp-With-RazorSignalR",
       "SourceType": "Discovered",
       "ContentRoot": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/ChatApp-With-RazorSignalR",
-      "RelativePath": "css/site#[.{fingerprint=q7wh2zqolw}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=epjvgq89md}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -199,8 +199,8 @@
       "RelatedAsset": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "aar6khicca",
-      "Integrity": "omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk=",
+      "Fingerprint": "4nacfltv4q",
+      "Integrity": "4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/wwwroot/css/site.css"
@@ -1501,8 +1501,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q7wh2zqolw",
-      "Integrity": "qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0=",
+      "Fingerprint": "epjvgq89md",
+      "Integrity": "gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -3493,12 +3493,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-q7wh2zqolw.gz",
+      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-epjvgq89md.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000590667454"
+          "Quality": "0.000440334654"
         }
       ],
       "ResponseHeaders": [
@@ -3508,15 +3508,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1692"
+          "Value": "2270"
         },
         {
           "Name": "ETag",
-          "Value": "\"omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk=\""
+          "Value": "\"4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Feb 2026 02:52:49 GMT"
+          "Value": "Wed, 04 Feb 2026 03:30:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3536,13 +3536,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0=\""
+          "Value": "W/\"gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0="
+          "Value": "sha256-gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM="
         }
       ]
     },
@@ -3557,7 +3557,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6107"
+          "Value": "9251"
         },
         {
           "Name": "Content-Type",
@@ -3565,11 +3565,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0=\""
+          "Value": "\"gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Feb 2026 02:52:49 GMT"
+          "Value": "Wed, 04 Feb 2026 03:30:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3579,13 +3579,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0="
+          "Value": "sha256-gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-q7wh2zqolw.gz",
+      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-epjvgq89md.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3594,7 +3594,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1692"
+          "Value": "2270"
         },
         {
           "Name": "Content-Type",
@@ -3602,11 +3602,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk=\""
+          "Value": "\"4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Feb 2026 02:52:49 GMT"
+          "Value": "Wed, 04 Feb 2026 03:30:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3624,18 +3624,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk="
+          "Value": "sha256-4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc="
         }
       ]
     },
     {
-      "Route": "css/site.q7wh2zqolw.css",
-      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-q7wh2zqolw.gz",
+      "Route": "css/site.epjvgq89md.css",
+      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-epjvgq89md.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000590667454"
+          "Quality": "0.000440334654"
         }
       ],
       "ResponseHeaders": [
@@ -3645,15 +3645,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1692"
+          "Value": "2270"
         },
         {
           "Name": "ETag",
-          "Value": "\"omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk=\""
+          "Value": "\"4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Feb 2026 02:52:49 GMT"
+          "Value": "Wed, 04 Feb 2026 03:30:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3673,13 +3673,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0=\""
+          "Value": "W/\"gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q7wh2zqolw"
+          "Value": "epjvgq89md"
         },
         {
           "Name": "label",
@@ -3687,12 +3687,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0="
+          "Value": "sha256-gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM="
         }
       ]
     },
     {
-      "Route": "css/site.q7wh2zqolw.css",
+      "Route": "css/site.epjvgq89md.css",
       "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3702,7 +3702,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6107"
+          "Value": "9251"
         },
         {
           "Name": "Content-Type",
@@ -3710,11 +3710,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0=\""
+          "Value": "\"gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Feb 2026 02:52:49 GMT"
+          "Value": "Wed, 04 Feb 2026 03:30:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3724,7 +3724,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q7wh2zqolw"
+          "Value": "epjvgq89md"
         },
         {
           "Name": "label",
@@ -3732,13 +3732,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qvSIekAotn28t/gfM8PN9UAPT3B7fx0VwpZnLOoD8x0="
+          "Value": "sha256-gu0HPyaMIxV4EkwVa3EvhYwU5+ugiS867JqwaZmMYMM="
         }
       ]
     },
     {
-      "Route": "css/site.q7wh2zqolw.css.gz",
-      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-q7wh2zqolw.gz",
+      "Route": "css/site.epjvgq89md.css.gz",
+      "AssetFile": "/home/minhchau/Documents/Vscode/Projects/ChatApp-With-RazorSignalR/obj/Debug/net9.0/compressed/3ol57w63w6-epjvgq89md.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3747,7 +3747,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1692"
+          "Value": "2270"
         },
         {
           "Name": "Content-Type",
@@ -3755,11 +3755,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk=\""
+          "Value": "\"4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Feb 2026 02:52:49 GMT"
+          "Value": "Wed, 04 Feb 2026 03:30:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3777,7 +3777,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q7wh2zqolw"
+          "Value": "epjvgq89md"
         },
         {
           "Name": "label",
@@ -3785,7 +3785,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-omeYMss6yg0JEe8tV/sDgMjCaHzys/3EKlq+FbURGFk="
+          "Value": "sha256-4DNDGUHJS/YoQWTvoFFdiEdWPZCrfdQzfbjUhjY8VKc="
         }
       ]
     },

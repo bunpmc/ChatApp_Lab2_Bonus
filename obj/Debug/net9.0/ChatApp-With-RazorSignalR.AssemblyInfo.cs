@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChatApp-With-RazorSignalR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8017c1b1e340ec11760a7a7282304a0e9efa859c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChatApp-With-RazorSignalR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChatApp-With-RazorSignalR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
